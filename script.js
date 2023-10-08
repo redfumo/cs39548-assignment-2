@@ -45,12 +45,25 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    //alert("Clicked Remove Row"); // Replace this line with your code.
+    //only works if there is at least one row
+    if (numRows != 0) {
+        document.getElementById("grid").deleteRow(numRows-1);   //delete the last row
+        numRows--;
+    }
+    //console.log(numRows);
 }
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    //alert("Clicked Remove Col"); // Replace this line with your code.
+    //only works if there is at least one column
+    if (numCols != 0) {
+        for (let i = 1; i <= numRows; i++)   //for each row in the grid
+        document.getElementById("row" + i).deleteCell(numCols-1);    //delete the last cell in the row
+    numCols--;
+    }
+    //console.log(numCols);
 }
 
 // Set global variable for selected color
