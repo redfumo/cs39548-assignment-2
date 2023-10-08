@@ -11,8 +11,17 @@ function addR() {
     numRows++;
     let row = document.getElementById("grid").insertRow();
     row.id = "row" + numRows;
-    row.insertCell();
-    
+
+    //if this is the very first row, also add a column so that a cell will appear
+    if (numCols == 0) {
+        row.insertCell();
+        numCols++;
+    }
+    //add cells based on the amount of current columns
+    else {
+        for (let i = 1; i <= numCols; i++)  //for each column in the grid 
+            row.insertCell();   //add a cell to the row
+    }
     //console.log(numRows);
     //console.log(row.id);
 
@@ -24,11 +33,13 @@ function addC() {
     //let col = document.createElement("td");
     //for (let i = 0; i < numRows; i++)   //for each row in the grid
         //document.getElementById("grid").appendChild(col);
+
+    //only add a new column if the number of rows is not 0
     if (numRows != 0) numCols++;
     for (let i = 1; i <= numRows; i++)   //for each row in the grid
         document.getElementById("row" + i).insertCell();    //insert an adjacent cell into the row to make a new col
 
-    console.log(numCols);
+    //console.log(numCols);
 
 }
 
