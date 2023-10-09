@@ -12,7 +12,8 @@ function addR() {
     //if this is the very first row, also add a column so that a cell will appear
     if (numCols == 0 && numRows == 1) {
         cell = document.createElement("td");    //create a new cell
-        cell.setAttribute("onclick", "alert('Clicked a table cell');"); //allow the cell to be clicked on
+        //cell.setAttribute("onclick", "alert('Clicked a table cell');"); //allow the cell to be clicked on
+        cell.setAttribute("onclick", "this.style.backgroundColor = colorSelected;"); //set the cell to change color on click
         document.getElementById("row1").appendChild(cell);  //append the cell to the end of the row
         numCols++;
     }
@@ -20,7 +21,8 @@ function addR() {
     else {
         for (let i = 1; i <= numCols; i++) {  //for each column in the grid 
             cell = document.createElement("td");    //create a new cell
-            cell.setAttribute("onclick", "alert('Clicked a table cell');"); //allow the cell to be clicked on
+            //cell.setAttribute("onclick", "alert('Clicked a table cell');"); //allow the cell to be clicked on
+            cell.setAttribute("onclick", "this.style.backgroundColor = colorSelected;"); //set the cell to change color on click
             document.getElementById("row" + numRows).appendChild(cell); //append the cell to the end of the row
         }
     }
@@ -35,7 +37,8 @@ function addC() {
     if (numRows != 0) numCols++;
     for (let i = 1; i <= numRows; i++) {   //for each row in the grid
         cell = document.createElement("td");    //create a new cell
-        cell.setAttribute("onclick", "alert('Clicked a table cell');"); //allow the cell to be clicked on
+        //cell.setAttribute("onclick", "alert('Clicked a table cell');"); //allow the cell to be clicked on
+        cell.setAttribute("onclick", "this.style.backgroundColor = colorSelected;");    //set the cell to change color on click
         document.getElementById("row" + i).appendChild(cell); //append the cell to the end of the row
     }
     //console.log(numCols);
