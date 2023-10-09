@@ -5,22 +5,61 @@ let colorSelected;
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    numRows++;
+    let row = document.getElementById("grid").insertRow();
+    row.id = "row" + numRows;
+
+    //if this is the very first row, also add a column so that a cell will appear
+    if (numCols == 0 && numRows == 1) {
+        cell = document.createElement("td");    //create a new cell
+        cell.setAttribute("onclick", "alert('Clicked a table cell');"); //allow the cell to be clicked on
+        document.getElementById("row1").appendChild(cell);  //append the cell to the end of the row
+        numCols++;
+    }
+    //add cells based on the amount of current columns
+    else {
+        for (let i = 1; i <= numCols; i++) {  //for each column in the grid 
+            cell = document.createElement("td");    //create a new cell
+            cell.setAttribute("onclick", "alert('Clicked a table cell');"); //allow the cell to be clicked on
+            document.getElementById("row" + numRows).appendChild(cell); //append the cell to the end of the row
+        }
+    }
+    //console.log(numRows);
+    //console.log(row.id);
+
 }
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    //only add a new column if the number of rows is not 0
+    if (numRows != 0) numCols++;
+    for (let i = 1; i <= numRows; i++) {   //for each row in the grid
+        cell = document.createElement("td");    //create a new cell
+        cell.setAttribute("onclick", "alert('Clicked a table cell');"); //allow the cell to be clicked on
+        document.getElementById("row" + i).appendChild(cell); //append the cell to the end of the row
+    }
+    //console.log(numCols);
 }
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    //only works if there is at least one row
+    if (numRows != 0) {
+        document.getElementById("grid").deleteRow(numRows-1);   //delete the last row
+        numRows--;
+    }
+    //console.log(numRows);
 }
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    //only works if there is at least one column
+    if (numCols != 0) {
+        for (let i = 1; i <= numRows; i++)   //for each row in the grid
+            document.getElementById("row" + i).deleteCell(numCols-1);    //delete the last cell in the row
+        numCols--;
+    }
+    //console.log(numCols);
 }
 
 // Set global variable for selected color
