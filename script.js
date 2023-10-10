@@ -73,7 +73,15 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    //alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    let cells = document.querySelectorAll("td");    //get all grid cells
+    for (let i = 0; i < cells.length; i++) {    //for each grid cell
+        //if the cell is not filled in with one of the colors, it is uncolored
+        if (cells[i].style.backgroundColor != "red" && cells[i].style.backgroundColor != "blue"
+            && cells[i].style.backgroundColor != "green" && cells[i].style.backgroundColor != "yellow") {
+                cells[i].style.backgroundColor = colorSelected; //fill it with the selected color
+        }
+    }
 }
 
 // Fill all cells
