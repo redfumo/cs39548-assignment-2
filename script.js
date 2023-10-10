@@ -101,5 +101,9 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    //alert("Clicked Clear All"); // Replace this line with your code.
+    let cells = document.querySelectorAll("td");    //get all grid cells
+    for (let i = 0; i < cells.length; i++) {    //for each grid cell
+        cells[i].style.backgroundColor = "white"; //fill it with white
+    }
 }
