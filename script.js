@@ -78,7 +78,17 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    //alert("Clicked Fill All"); // Replace this line with your code.
+    //for (let i = 1; i <= numRows; i++) { //for each row in the grid
+        //console.log(document.getElementById("row" + i).children);
+        //document.getElementById("row" + i).children.setAttribute("style", "background-color : colorSelected;");       
+    //}
+    //console.log(document.querySelectorAll("td"));
+
+    let cells = document.querySelectorAll("td");    //get all grid cells
+    for (let i = 0; i < cells.length; i++) {    //for each grid cell
+        cells[i].style.backgroundColor = colorSelected; //fill it with the selected color
+    }
 }
 
 // Clear all cells
